@@ -1,0 +1,47 @@
+openapi: 3.0.3
+
+info:
+  title: Betting Atlas
+  description: Сервис беттинга
+  version: 1.0.0
+
+servers:
+  - url: http://22.22.2.2/api/v1
+paths:
+  /{wlSlug}/billing/bet:place:
+    post:
+      summary: Ставка
+      tags:
+        - Place-Bet
+      parameters:
+        - in: path
+          name: wlSlug
+          required: true
+          schema:
+            type: string
+            example: betonred
+        - name: 'bet:place'
+          in: query
+          required: true
+          description: 'bet:place'
+          schema:
+            $ref: '#/components/schemas/Bet'
+      responses:
+        200:
+          description: A successful response.
+
+components:
+  schemas:
+    Bet:
+      type: object
+      description: bet:place
+      properties:
+        betId:
+          type: string
+          example: 1
+        clientId:
+          type: string
+          example: 1
+        transactionId:
+          type: string
+          example: 1
