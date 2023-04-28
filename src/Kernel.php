@@ -19,8 +19,8 @@ class Kernel extends BaseKernel
     {
         $confDir = $this->getProjectDir() . '/config';
 
-        $container->parameters()->set('container.dumper.inline_class_loader', true);
-        $container->parameters()->set('container.dumper.inline_factories', true);
+        $container->parameters()->set('.container.dumper.inline_factories', true);
+        $container->parameters()->set('.container.dumper.inline_class_loader', true);
 
         $container->import($confDir . '/{packages}/*' . self::CONFIG_EXTS);
         $container->import($confDir . '/{packages}/' . $this->environment . '/*' . self::CONFIG_EXTS);

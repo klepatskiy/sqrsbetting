@@ -27,3 +27,7 @@ tests:
 .PHONY: ecs
 ecs:
 	$(compose) exec php-fpm ./vendor/bin/ecs check src $(arg1)
+
+.PHONY: stan
+stan:
+	$(compose) exec php-fpm ./vendor/bin/phpstan

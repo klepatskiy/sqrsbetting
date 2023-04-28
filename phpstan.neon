@@ -1,0 +1,12 @@
+includes:
+#    - phpstan-baseline.neon
+
+parameters:
+	level: 9
+	tmpDir: var/stan
+	paths:
+		- src
+		- tests
+
+	editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+	checkGenericClassInNonGenericObjectType: false
