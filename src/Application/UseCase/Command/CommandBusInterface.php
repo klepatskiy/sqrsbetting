@@ -12,5 +12,5 @@ interface CommandBusInterface
     /**
      * @throws Throwable
      */
-    public function handle(CommandInterface $command);
+    public function handle(CommandInterface $command): void;
 }

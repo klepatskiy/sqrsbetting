@@ -13,8 +13,6 @@ use Throwable;
 
 class QueryBus implements QueryBusInterface
 {
-    use BusExceptionTrait;
-
     public function __construct(
         private readonly MessageBusInterface $messageBus
     ) {
@@ -25,12 +23,8 @@ class QueryBus implements QueryBusInterface
      */
     public function ask(QueryInterface $query): mixed
     {
-        try {
-            $envelope = $this->messageBus->dispatch($query);
+        $envelope = $this->messageBus->dispatch($query);
 
-            return $envelope->last(HandledStamp::class)?->getResult();
-        } catch (HandlerFailedException $e) {
-            $this->throwException($e);
-        }
+        return $envelope->last(HandledStamp::class)?->getResult();
     }
 }

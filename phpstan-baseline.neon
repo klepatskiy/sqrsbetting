@@ -1,0 +1,36 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property ArrayObject\\:\\:\\$statusCode\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Access to an undefined property ArrayObject\\<\\*NEVER\\*, \\*NEVER\\*\\>\\:\\:\\$debug\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Access to an undefined property ArrayObject\\<\\*NEVER\\*, \\*NEVER\\*\\>\\:\\:\\$errorCode\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Access to an undefined property ArrayObject\\<\\*NEVER\\*, \\*NEVER\\*\\>\\:\\:\\$errorMessage\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Access to an undefined property ArrayObject\\<\\*NEVER\\*, \\*NEVER\\*\\>\\:\\:\\$statusCode\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Method App\\\\Infrastructure\\\\Service\\\\ExceptionFormatter\\:\\:getErrorObject\\(\\) has parameter \\$append with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Infrastructure/Service/ExceptionFormatter.php
