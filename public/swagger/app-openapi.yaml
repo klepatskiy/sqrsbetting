@@ -37,11 +37,88 @@ components:
       description: bet:place
       properties:
         betId:
-          type: string
-          example: 1
+          type: "string"
+          description: "Unique identifier of the placed bet"
+          example: "512346"
         clientId:
-          type: string
-          example: 1
+          type: "string"
+          description: "Partner client identifier"
+          example: "8237451"
         transactionId:
-          type: string
-          example: 1
+          type: "string"
+          description: "Unique transaction identifier in Atlas to identify each call to Partner regarding bets. Partner should keep this Id to eliminate duplicate calls."
+          example: "1834"
+        transactionAmount:
+          type: "integer"
+          description: "Transaction amount"
+          example: 500
+        betType:
+          type: "string"
+          enum:
+            - "SINGLE"
+            - "MULTIPLE"
+            - "SYSTEM"
+          description: "Type of bet"
+          example: "SINGLE"
+        betTransactionType:
+          type: "string"
+          enum:
+            - "INSTANT"
+            - "ORDER"
+          description: "Transaction type"
+          example: "INSTANT"
+        acceptOddsChanges:
+          type: "string"
+          enum:
+            - "YES"
+            - "UP"
+            - "NO"
+            - "DOWN"
+          description: "Accept odds changes"
+          example: "UP"
+        acceptParameterChanges:
+          type: "string"
+          enum:
+            - "YES"
+            - "UP"
+            - "NO"
+          description: "Accept parameter changes"
+          example: "NO"
+        odds:
+          type: "number"
+          description: "Actual current odds that can change upon settlement process"
+          example: 1.35
+        betOdds:
+          type: "number"
+          description: "Odds the bet was made for"
+          example: 1.35
+        betStatus:
+          type: "string"
+          enum:
+            - "UNSETTLED"
+            - "WIN"
+            - "LOSE"
+            - "CANCELLED"
+            - "VOID"
+            - "CASH_OUT"
+          description: "Status of the bet"
+          example: "WIN"
+        prematchFinCategoryName:
+          type: "string"
+          description: "Prematch financial category name"
+        prematchGameStyleCategoryName:
+          type: "string"
+          description: "Prematch game style category name"
+        liveFinCategoryName:
+          type: "string"
+          description: "Live financial category name"
+        liveGameStyleCategoryName:
+          type: "string"
+          description: "Live game style category name"
+        settleTime:
+          type: "integer"
+          format: "int64"
+          description: "UTC milliseconds the bet was settled"
+          example: 1636388354090
+        createTime:
+          type: "integer"

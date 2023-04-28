@@ -1,0 +1,21 @@
+framework:
+    messenger:
+        default_bus: messenger.bus.command
+        transports:
+            #add transports here
+        buses:
+            messenger.bus.command:
+                default_middleware: false
+                middleware:
+                    - send_message
+                    - handle_message
+                    - failed_message_processing_middleware
+
+            messenger.bus.query:
+                default_middleware: false
+                middleware:
+                    - handle_message
+                    - failed_message_processing_middleware
+
+        routing:
+            #transport routing

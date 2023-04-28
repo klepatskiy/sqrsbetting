@@ -28,3 +28,7 @@ hook:
 .PHONY: tests
 tests:
 	$(compose) exec php-fpm bin/phpunit --coverage-html /var/www/var/coverage
+
+.PHONY: ecs
+ecs:
+	$(compose) exec php-fpm ./vendor/bin/ecs check src $(arg1)

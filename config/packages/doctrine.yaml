@@ -1,0 +1,43 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+#        mappings:
+        ## mapeng here
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@dev:
+    doctrine:
+        orm:
+            query_cache_driver:
+                type: pool
+                pool: cache.app
+            metadata_cache_driver:
+                type: pool
+                pool: cache.app
+            result_cache_driver:
+                type: pool
+                pool: cache.system
+
+when@prod:
+    doctrine:
+        orm:
+            auto_generate_proxy_classes: false
+            query_cache_driver:
+                type: pool
+                pool: sqrsbetting.doctrine_pool
+            metadata_cache_driver:
+                type: pool
+                pool: sqrsbetting.doctrine_pool
+            result_cache_driver:
+                type: pool
+                pool: sqrsbetting.doctrine_pool
