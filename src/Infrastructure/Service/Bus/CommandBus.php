@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Service\Bus;
 
+use App\Application\Enum\WlSlug;
 use App\Application\UseCase\Command\CommandBusInterface;
 use App\Application\UseCase\Command\CommandInterface;
 use Psr\Log\LoggerInterface;

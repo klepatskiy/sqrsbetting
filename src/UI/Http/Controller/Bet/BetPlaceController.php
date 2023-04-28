@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Http\Controller\Bet;
 
+use App\Application\DTO\BetPlaceDTO;
+use App\Application\Enum\WlSlug;
 use App\Application\UseCase\Command\BetPlace\BetPlaceCommand;
 use App\Application\UseCase\Command\CommandBusInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,9 +20,9 @@ readonly class BetPlaceController
     }
 
     #[Route(path: '/{wlSlug}/billing/bet:place', methods: ['POST'])]
-    public function __invoke(#[MapRequestPayload] BetPlaceCommand $command): JsonResponse
+    public function __invoke(WlSlug $wlSlug, #[MapRequestPayload] BetPlaceDTO $entryDTO): JsonResponse
     {
-        $this->bus->handle($command);
+        $this->bus->handle(new BetPlaceCommand($wlSlug, $entryDTO));
 
         return new JsonResponse();
     }
