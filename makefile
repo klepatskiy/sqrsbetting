@@ -8,7 +8,6 @@ compose=docker-compose -f docker-compose.yml
 .PHONY: wakeapp
 wakeapp:
 	cp .env.example .env
-	make hook
 	make build
 	$(compose) exec php-fpm bin/console d:m:m -n
 	make speca
@@ -20,10 +19,6 @@ build:
 .PHONY: speca
 speca:
 	$(compose) up openapigen
-
-.PHONY: hook
-hook:
-	cp ./scripts/git/pre-commit.sh .git/hooks/pre-commit
 
 .PHONY: tests
 tests:

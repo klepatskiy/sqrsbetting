@@ -21,7 +21,7 @@ paths:
             type: string
             example: betonred
         - name: 'bet:place'
-          in: query
+          in: body
           required: true
           description: 'bet:place'
           schema:
