@@ -11,11 +11,11 @@ use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Throwable;
 
-class ExceptionSubscriber implements EventSubscriberInterface
+readonly class ExceptionSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private readonly LoggerInterface $errorLogger,
-        private readonly ExceptionFormatter $exceptionFormatter,
+        private LoggerInterface $errorLogger,
+        private ExceptionFormatter $exceptionFormatter,
     ) {
     }
 
