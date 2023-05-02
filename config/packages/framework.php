@@ -19,6 +19,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'log' => true,
         ],
     ]);
+
     if ($containerConfigurator->env() === 'test') {
         $containerConfigurator->extension('framework', [
             'test' => true,

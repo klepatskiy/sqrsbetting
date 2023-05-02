@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7f156e69d7e0d18eee8f6f8d16852bc",
+    "content-hash": "abcb0088509a38ab9df9458cc9b0281b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1392,6 +1392,67 @@
             "time": "2022-05-23T21:33:49+00:00"
         },
         {
+            "name": "harmbandstra/swagger-ui-bundle",
+            "version": "5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/harmbandstra/swagger-ui-bundle.git",
+                "reference": "331d76aa86d833f5fe2301650f297f0173286b16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harmbandstra/swagger-ui-bundle/zipball/331d76aa86d833f5fe2301650f297f0173286b16",
+                "reference": "331d76aa86d833f5fe2301650f297f0173286b16",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0",
+                "swagger-api/swagger-ui": "4.1.2",
+                "symfony/config": "^4.4|^5.0|^6.0",
+                "symfony/dependency-injection": "^4.4|^5.0|^6.0",
+                "symfony/framework-bundle": "^4.4|^5.0|^6.0",
+                "symfony/http-kernel": "^4.4|^5.0|^6.0",
+                "symfony/routing": "^4.4|^5.0|^6.0",
+                "symfony/yaml": "^4.4|^5.0|^6.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2.0.13",
+                "phpspec/prophecy": "^1.15",
+                "phpunit/phpunit": "^9.5",
+                "symfony/browser-kit": "^4.0|^5.0|^6.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "HarmBandstra\\SwaggerUiBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src"
+            ],
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Exposes swagger UI inside your Symfony project through a route (eg. /docs)",
+            "homepage": "https://github.com/harmbandstra/swagger-ui-bundle",
+            "keywords": [
+                "api",
+                "bundle",
+                "doc",
+                "php",
+                "swagger",
+                "swagger-ui",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/harmbandstra/swagger-ui-bundle/issues",
+                "source": "https://github.com/harmbandstra/swagger-ui-bundle/tree/5.0.1"
+            },
+            "time": "2022-02-03T11:34:18+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "3.3.1",
             "source": {
@@ -1954,6 +2015,67 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.0"
             },
             "time": "2021-07-14T16:46:02+00:00"
+        },
+        {
+            "name": "swagger-api/swagger-ui",
+            "version": "v4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swagger-api/swagger-ui.git",
+                "reference": "c572cfe49a3ac747e70ad20c3018e3ff0e08982d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/c572cfe49a3ac747e70ad20c3018e3ff0e08982d",
+                "reference": "c572cfe49a3ac747e70ad20c3018e3ff0e08982d",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Anna Bodnia",
+                    "email": "anna.bodnia@gmail.com"
+                },
+                {
+                    "name": "Buu Nguyen",
+                    "email": "buunguyen@gmail.com"
+                },
+                {
+                    "name": "Josh Ponelat",
+                    "email": "jponelat@gmail.com"
+                },
+                {
+                    "name": "Kyle Shockey",
+                    "email": "kyleshockey1@gmail.com"
+                },
+                {
+                    "name": "Robert Barnwell",
+                    "email": "robert@robertismy.name"
+                },
+                {
+                    "name": "Sahar Jafari",
+                    "email": "shr.jafari@gmail.com"
+                }
+            ],
+            "description": " Swagger UI is a collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation from a Swagger-compliant API.",
+            "homepage": "http://swagger.io",
+            "keywords": [
+                "api",
+                "documentation",
+                "openapi",
+                "specification",
+                "swagger",
+                "ui"
+            ],
+            "support": {
+                "issues": "https://github.com/swagger-api/swagger-ui/issues",
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v4.1.2"
+            },
+            "time": "2021-11-26T10:34:50+00:00"
         },
         {
             "name": "symfony/cache",
@@ -6070,6 +6192,67 @@
                 }
             ],
             "time": "2023-04-22T07:38:19+00:00"
+        },
+        {
+            "name": "rector/rector",
+            "version": "0.15.25",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector.git",
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/015935c7ed9e48a4f5895ba974f337e20a263841",
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0",
+                "phpstan/phpstan": "^1.10.14"
+            },
+            "conflict": {
+                "rector/rector-doctrine": "*",
+                "rector/rector-downgrade-php": "*",
+                "rector/rector-phpunit": "*",
+                "rector/rector-symfony": "*"
+            },
+            "bin": [
+                "bin/rector"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.15-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "keywords": [
+                "automation",
+                "dev",
+                "migration",
+                "refactoring"
+            ],
+            "support": {
+                "issues": "https://github.com/rectorphp/rector/issues",
+                "source": "https://github.com/rectorphp/rector/tree/0.15.25"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-20T16:07:39+00:00"
         },
         {
             "name": "roave/security-advisories",

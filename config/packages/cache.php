@@ -18,7 +18,7 @@ return static function (FrameworkConfig $frameworkConfig) {
             $project . '_pool',
             (new PoolConfig())
                 ->adapters('cache.adapter.redis')
-                ->provider($project . '_pool.redis_provider')
+                ->provider('sqrsbetting.redis_provider')
         )
     ;
 };

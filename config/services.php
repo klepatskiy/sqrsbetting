@@ -6,8 +6,11 @@ use App\Application\UseCase\Command\CommandHandlerInterface;
 use App\Application\UseCase\Query\QueryHandlerInterface;
 use App\Infrastructure\Service\Bus\CommandBus;
 use App\Infrastructure\Service\Bus\QueryBus;
+use App\UI\Console\LinkCommand;
 use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+use function Symfony\Component\DependencyInjection\Loader\Configurator\param;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -78,4 +81,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         service('messenger.bus.query'),
     ])
         ->tag('sqrsbetting.messenger.query_bus');
+
+    $services->set(LinkCommand::class)
+        ->args([param('kernel.project_dir')])
+    ;
 };

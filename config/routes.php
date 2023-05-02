@@ -10,4 +10,6 @@ return static function (RoutingConfigurator $routes) {
     $routes->import(__DIR__ . '/../src/UI/Http/Controller/', 'annotation')
         ->prefix("$apiVersionPrefix/")
     ;
+
+    $routes->import('@HBSwaggerUiBundle/Resources/config/routing.yml')->prefix('/api/docs/');
 };
