@@ -20,5 +20,6 @@ return static function (FrameworkConfig $frameworkConfig) {
                 ->adapters('cache.adapter.redis')
                 ->provider('sqrsbetting.redis_provider')
         )
+        ->system('cache.adapter.apcu')
     ;
 };

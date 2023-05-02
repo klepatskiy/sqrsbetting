@@ -8,6 +8,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
         'validation' => [
             'email_validation_mode' => 'html5',
+            'enable_annotations' => true,
+            'cache' => 'sqrsbetting.redis_provider',
         ],
     ]);
 
