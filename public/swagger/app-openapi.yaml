@@ -6,9 +6,9 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://22.22.2.2/api/v1/bettingapi
+  - url: http://22.22.2.2/api/v1
 paths:
-  /{wlSlug}/atlas/partner-api/v1/billing/bet:place:
+  /bettingapi/{wlSlug}/atlas/partner-api/v1/billing/bet:place:
     post:
       summary: Ставка
       tags:
