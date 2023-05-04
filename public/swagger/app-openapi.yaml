@@ -8,7 +8,7 @@ info:
 servers:
   - url: http://22.22.2.2/api/v1
 paths:
-  /{wlSlug}/billing/bet:place:
+  /bettingapi/{wlSlug}/atlas/partner-api/v1/billing/bet:place:
     post:
       summary: Ставка
       tags:
@@ -25,100 +25,134 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Bet'
+              $ref: '#/components/schemas/BetPlaceBodyRequest'
       responses:
         200:
           description: A successful response.
 
 components:
   schemas:
-    Bet:
+    BetPlaceBodyRequest:
       type: object
-      description: bet:place
       properties:
-        betId:
-          type: "string"
-          description: "Unique identifier of the placed bet"
-          example: "512346"
-        clientId:
-          type: "string"
-          description: "Partner client identifier"
-          example: "8237451"
-        transactionId:
-          type: "string"
-          description: "Unique transaction identifier in Atlas to identify each call to Partner regarding bets. Partner should keep this Id to eliminate duplicate calls."
-          example: "1834"
-        transactionAmount:
-          type: "integer"
-          description: "Transaction amount"
-          example: 500
-        betType:
-          type: "string"
-          enum:
-            - "SINGLE"
-            - "MULTIPLE"
-            - "SYSTEM"
-          description: "Type of bet"
-          example: "SINGLE"
-        betTransactionType:
-          type: "string"
-          enum:
-            - "INSTANT"
-            - "ORDER"
-          description: "Transaction type"
-          example: "INSTANT"
-        acceptOddsChanges:
-          type: "string"
-          enum:
-            - "YES"
-            - "UP"
-            - "NO"
-            - "DOWN"
-          description: "Accept odds changes"
-          example: "UP"
-        acceptParameterChanges:
-          type: "string"
-          enum:
-            - "YES"
-            - "UP"
-            - "NO"
-          description: "Accept parameter changes"
-          example: "NO"
-        odds:
-          type: "number"
-          description: "Actual current odds that can change upon settlement process"
-          example: 1.35
-        betOdds:
-          type: "number"
-          description: "Odds the bet was made for"
-          example: 1.35
-        betStatus:
-          type: "string"
-          enum:
-            - "UNSETTLED"
-            - "WIN"
-            - "LOSE"
-            - "CANCELLED"
-            - "VOID"
-            - "CASH_OUT"
-          description: "Status of the bet"
-          example: "WIN"
-        prematchFinCategoryName:
-          type: "string"
-          description: "Prematch financial category name"
-        prematchGameStyleCategoryName:
-          type: "string"
-          description: "Prematch game style category name"
-        liveFinCategoryName:
-          type: "string"
-          description: "Live financial category name"
-        liveGameStyleCategoryName:
-          type: "string"
-          description: "Live game style category name"
-        settleTime:
-          type: "integer"
-          format: "int64"
-          description: "UTC milliseconds the bet was settled"
-          example: 1636388354090
-        createTime:
-          type: "integer"
+        bet:
+          type: object
+          properties:
+            betId:
+              type: string
+              example: "512346"
+            clientId:
+              type: string
+              example: "8237451"
+            transactionId:
+              type: string
+              example: "1834"
+            transactionAmount:
+              type: integer
+              example: 500
+            betType:
+              type: string
+              example: "SINGLE"
+            betTransactionType:
+              type: string
+              example: "INSTANT"
+            acceptOddsChanges:
+              type: string
+              example: "UP"
+            acceptParameterChanges:
+              type: string
+              example: "NO"
+            odds:
+              type: number
+              example: 1.35
+            betOdds:
+              type: number
+              example: 1.35
+            betStatus:
+              type: string
+              example: "WIN"
+            prematchFinCategoryName:
+              type: string
+              nullable: true
+            prematchGameStyleCategoryName:
+              type: string
+              nullable: true
+            liveFinCategoryName:
+              type: string
+              nullable: true
+            liveGameStyleCategoryName:
+              type: string
+              nullable: true
+            settleTime:
+              type: integer
+              example: 1636388354090
+            createTime:
+              type: integer
+              example: 1636388350139
+            updateTime:
+              type: integer
+              example: 1636388350155
+            betMoney:
+              type: object
+              properties:
+                currency:
+                  type: string
+                  example: "EUR"
+                betAmount:
+                  type: integer
+                  example: 500
+                liability:
+                  type: integer
+                  example: 675
+                winAmount:
+                  type: integer
+                  example: 675
+                payout:
+                  type: integer
+                  example: 675
+              required:
+                - currency
+                - betAmount
+                - liability
+                - winAmount
+                - payout
+            cashOutReason:
+              type: string
+              example: "CASH_OUT"
+            locale:
+              type: string
+              example: "ENG"
+            betSportService:
+              type: string
+              example: "LIVE"
+            winCombinationSize:
+              type: integer
+              example: 2
+            outcomes:
+              type: array
+              nullable: true
+            bonuses:
+              type: array
+              nullable: true
+          required:
+            - betId
+            - clientId
+            - transactionId
+            - transactionAmount
+            - betType
+            - betTransactionType
+            - acceptOddsChanges
+            - acceptParameterChanges
+            - odds
+            - betOdds
+            - betStatus
+            - settleTime
+            - createTime
+            - updateTime
+            - betMoney
+            - cashOutReason
+            - locale
+            - betSportService
+            - winCombinationSize
+      required:
+        - bet

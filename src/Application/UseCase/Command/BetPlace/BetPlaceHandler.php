@@ -14,5 +14,6 @@ readonly class BetPlaceHandler implements CommandHandlerInterface
 
     public function __invoke(BetPlaceCommand $command): void
     {
+        dump($command->betPlaceDTO);
     }
 }

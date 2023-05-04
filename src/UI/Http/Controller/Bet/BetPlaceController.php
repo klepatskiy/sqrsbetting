@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Http\Controller\Bet;
 
-use App\Application\DTO\BetPlaceDTO;
+use App\Application\DTO\Request\BetPlaceEntryDTO;
 use App\Application\Enum\WlSlug;
 use App\Application\UseCase\Command\BetPlace\BetPlaceCommand;
 use App\Application\UseCase\Command\CommandBusInterface;
@@ -19,8 +19,8 @@ readonly class BetPlaceController
     ) {
     }
 
-    #[Route(path: '/{wlSlug}/billing/bet:place', methods: ['POST'])]
-    public function __invoke(WlSlug $wlSlug, #[MapRequestPayload] BetPlaceDTO $entryDTO): JsonResponse
+    #[Route(path: '/bettingapi/{wlSlug}/atlas/partner-api/v1/billing/bet:place', methods: ['POST'])]
+    public function __invoke(WlSlug $wlSlug, #[MapRequestPayload] BetPlaceEntryDTO $entryDTO): JsonResponse
     {
         $this->bus->handle(new BetPlaceCommand($wlSlug, $entryDTO));
 

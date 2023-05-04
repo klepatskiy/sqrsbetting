@@ -38,12 +38,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->load('App\\', __DIR__ . '/../src/')
         ->exclude([
-        __DIR__ . '/../src/DependencyInjection/',
-        __DIR__ . '/../src/Domain/Project/Entity',
-        __DIR__ . '/../src/Domain/Branch/DTO',
-        __DIR__ . '/../src/Infrastructure/Persistence/Http/Gitlab/ActionsV4',
-        __DIR__ . '/../src/Infrastructure/Persistence/Action.php',
         __DIR__ . '/../src/Kernel.php',
+        __DIR__ . '/../src/Application/DTO',
+        __DIR__ . '/../src/Application/Enum',
+        __DIR__ . '/../src/Application/Exception',
+        __DIR__ . '/../src/Application/UseCase/Command/BetPlace/DTO',
     ]);
 
     $services->load('App\UI\Http\Controller\\', __DIR__ . '/../src/UI/Http/Controller')
