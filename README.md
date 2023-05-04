@@ -1,7 +1,6 @@
 # sqrsbetting
 
 ## start project
-Скопировать  .env
 ```shell
 sudo ifconfig lo0 alias 22.22.2.2
 ```
