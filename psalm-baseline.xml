@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.10.0@a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356">
+  <file src="src/Infrastructure/Service/ExceptionFormatter.php">
+    <RedundantCondition>
+      <code>$append !== []</code>
+    </RedundantCondition>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$errorObject->errorCode]]></code>
+      <code><![CDATA[$errorObject->errorMessage]]></code>
+      <code><![CDATA[$errorObject->statusCode]]></code>
+      <code><![CDATA[$response->debug]]></code>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch>
+      <code><![CDATA[$errorObject->statusCode]]></code>
+    </UndefinedPropertyFetch>
+  </file>
+</files>
