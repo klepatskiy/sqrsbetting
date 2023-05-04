@@ -8,7 +8,7 @@ compose=docker-compose -f docker-compose.yml
 .PHONY: wakeapp
 wakeapp:
 	cp .env.example .env
-	make build
+	$(compose) up -d --force-recreate --remove-orphans
 	$(compose) exec php-fpm bin/console d:m:m -n
 	make speca
 
