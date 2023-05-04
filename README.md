@@ -8,9 +8,9 @@ sudo ifconfig lo0 alias 22.22.2.2
 ```shell
 make build
 ```
-При желании можно замапить хост 22.22.2.2 в  /ect/host 
+При желании можно замапить хост 22.22.2.2 в  /etc/host 
 ```
-22.22.2.2 - https://mydomen.com
+22.22.2.2 betting.local.com
 ```
 
 ## Разработка
