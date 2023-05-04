@@ -10,7 +10,7 @@ make build
 ```
 При желании можно замапить хост 22.22.2.2 в  /etc/host 
 ```
-22.22.2.2 betting.local.com
+22.22.2.2 betting.local
 ```
 
 ## Разработка
