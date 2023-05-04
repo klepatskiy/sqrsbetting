@@ -10,7 +10,6 @@
 ###< symfony/framework-bundle ###
 
 .env
-.env*
 external
 docker/data
 .idea
