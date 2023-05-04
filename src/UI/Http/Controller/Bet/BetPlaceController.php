@@ -19,7 +19,7 @@ readonly class BetPlaceController
     ) {
     }
 
-    #[Route(path: '/bettingapi/{wlSlug}/atlas/partner-api/v1/billing/bet:place', methods: ['POST'])]
+    #[Route(path: '/{wlSlug}/atlas/partner-api/v1/billing/bet:place', methods: ['POST'])]
     public function __invoke(WlSlug $wlSlug, #[MapRequestPayload] BetPlaceEntryDTO $entryDTO): JsonResponse
     {
         $this->bus->handle(new BetPlaceCommand($wlSlug, $entryDTO));
