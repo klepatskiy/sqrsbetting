@@ -42,7 +42,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/../src/Application/DTO',
         __DIR__ . '/../src/Application/Enum',
         __DIR__ . '/../src/Application/Exception',
-        __DIR__ . '/../src/Application/UseCase/Command/BetPlace/DTO',
     ]);
 
     $services->load('App\UI\Http\Controller\\', __DIR__ . '/../src/UI/Http/Controller')
