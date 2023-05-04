@@ -28,8 +28,7 @@ services:
       context: ./docker/context
       dockerfile: images/php-fpm/dev/Dockerfile
     environment:
-      PHP_IDE_CONFIG: serverName=php-fpm
-      APP_ENV: dev
+      PHP_IDE_CONFIG: serverName=sqrsbetting_php-fpm
     volumes:
       - ./:/var/www
     depends_on:
