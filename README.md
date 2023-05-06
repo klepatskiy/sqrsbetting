@@ -2,15 +2,15 @@
 
 ## start project
 ```shell
-sudo ifconfig lo0 alias 22.22.2.2
+sudo ifconfig lo0 alias 33.33.3.3
 ```
 
 ```shell
 make build
 ```
-При желании можно замапить хост 22.22.2.2 в  /etc/host 
+При желании можно замапить хост 33.33.3.3 в  /etc/host 
 ```
-22.22.2.2 betting.local
+33.33.3.3 betting.local
 ```
 
 ## Разработка

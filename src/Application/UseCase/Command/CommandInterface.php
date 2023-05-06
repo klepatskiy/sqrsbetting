@@ -6,5 +6,4 @@ namespace App\Application\UseCase\Command;
 
 interface CommandInterface
 {
-    // @todo make to async
 }
