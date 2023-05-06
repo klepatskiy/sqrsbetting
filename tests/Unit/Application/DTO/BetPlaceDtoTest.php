@@ -2,73 +2,108 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Unit\Application\DTO;
+namespace App\Tests\Application\DTO;
 
 use App\Application\DTO\BetPlaceDTO;
+use App\Application\DTO\BetPlaceMoneyDTO;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class BetPlaceDtoTest extends TestCase
 {
-    private ValidatorInterface $validator;
-
-    protected function setUp(): void
+    public function testValidBetPlaceDTO(): void
     {
-        $this->validator = Validation::createValidatorBuilder()->enableAnnotationMapping()->getValidator();
-    }
-
-    public function testValidDTO(): void
-    {
-        $dto = new BetPlaceDTO(
-            '12345',
-            'client123',
-            'transaction123',
-            100,
+        $betPlaceDTO = new BetPlaceDTO(
+            '512346',
+            '8237451',
+            '1834',
+            500.0,
             'SINGLE',
             'INSTANT',
-            'YES',
-            'YES',
-            1.5,
-            2.0,
-            'UNSETTLED',
+            'UP',
+            'NO',
+            1.35,
+            1.35,
+            'WIN',
             null,
             null,
             null,
             null,
-            1620356831,
-            1620355831
+            1636388354090,
+            1636388350139,
+            1636388350155,
+            new BetPlaceMoneyDTO(
+                'EUR',
+                500.0,
+                675.0,
+                675.0,
+                675.0
+            ),
+            'CASH_OUT',
+            'ENG',
+            'LIVE',
+            2,
+            null,
+            null
         );
 
-        $violations = $this->validator->validate($dto);
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator();
+
+        $violations = $validator->validate($betPlaceDTO);
 
         $this->assertCount(0, $violations);
     }
 
-    public function testInvalidDTO(): void
+    public function testInvalidBetPlaceDTO(): void
     {
-        $dto = new BetPlaceDTO(
-            '1234a',
-            '',
-            'transaction123',
-            -100,
-            'SINGL',
-            'INSTANTT',
-            'YESS',
-            'NOPE',
-            -1.5,
-            -2.0,
-            'INVALID',
-            'prematchFinCategoryName',
-            'prematchGameStyleCategoryName',
-            'liveFinCategoryName',
-            'liveGameStyleCategoryName',
-            -1620356831,
-            -1620355831
+        $betPlaceDTO = new BetPlaceDTO(
+            '512346',
+            '8237451',
+            '1834',
+            -500.0,
+            'MULTIPLE', // invalid bet type
+            'INSTANT',
+            'UP',
+            'NO',
+            1.35,
+            1.35,
+            'WIN',
+            null,
+            null,
+            null,
+            null,
+            1636388354090,
+            1636388350139,
+            1636388350155,
+            new BetPlaceMoneyDTO(
+                'EUR',
+                500.0,
+                675.0,
+                675.0,
+                675.0
+            ),
+            'CASH_OUT',
+            'ENG',
+            'LIVE',
+            2,
+            null,
+            null
         );
 
-        $violations = $this->validator->validate($dto);
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator();
 
-        $this->assertCount(11, $violations);
+        $violations = $validator->validate($betPlaceDTO);
+
+        $this->assertCount(2, $violations);
+
+        $this->assertContainsOnlyInstancesOf(ConstraintViolationInterface::class, $violations);
+
+        $this->assertEquals('This value should be either positive or zero.', $violations[0]->getMessage());
+        $this->assertEquals('Invalid bet type', $violations[1]->getMessage());
     }
 }

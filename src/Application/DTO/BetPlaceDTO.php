@@ -60,6 +60,7 @@ readonly class BetPlaceDTO
 
         public int $updateTime,
 
+        #[Assert\Valid]
         public BetPlaceMoneyDTO $betMoney,
 
         public string $cashOutReason,
