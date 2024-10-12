@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\UI\Http\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Attribute\Route;
+
 class Healthcheck
 {
-    public function __invoke()
+    #[Route(path: '/healthcheck', methods: 'GET')]
+    public function __invoke(): JsonResponse
     {
-        // TODO: Implement __invoke() method.
+        return new JsonResponse(['result' => 'ok']);
     }
 }

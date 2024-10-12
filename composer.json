@@ -4,41 +4,41 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^2.0",
-        "doctrine/doctrine-bundle": "^2.9",
-        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/doctrine-bundle": "^2.13",
+        "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^2.14",
         "harmbandstra/swagger-ui-bundle": "^5.0",
-        "phpdocumentor/reflection-docblock": "^5.3",
+        "phpdocumentor/reflection-docblock": "^5.4",
         "phpstan/phpdoc-parser": "^1.20",
-        "symfony/console": "6.3.*",
-        "symfony/dotenv": "6.3.*",
+        "symfony/console": "^6.4",
+        "symfony/dotenv": "^6.4",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/messenger": "6.3.*",
+        "symfony/framework-bundle": "^6.4",
+        "symfony/messenger": "^6.4",
         "symfony/monolog-bundle": "^3.8",
-        "symfony/property-access": "6.3.*",
-        "symfony/property-info": "6.3.*",
-        "symfony/redis-messenger": "6.3.*",
-        "symfony/runtime": "6.3.*",
-        "symfony/serializer": "6.3.*",
-        "symfony/uid": "6.3.*",
-        "symfony/validator": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/property-access": "^6.4",
+        "symfony/property-info": "^6.4",
+        "symfony/redis-messenger": "^6.4",
+        "symfony/runtime": "^6.4",
+        "symfony/serializer": "^6.4",
+        "symfony/uid": "^6.4",
+        "symfony/validator": "^6.4",
+        "symfony/yaml": "^6.4"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^10.1",
         "rector/rector": "^0.15.25",
         "roave/security-advisories": "dev-latest",
-        "symfony/browser-kit": "6.3.*",
-        "symfony/debug-bundle": "6.3.*",
+        "symfony/browser-kit": "^6.4",
+        "symfony/debug-bundle": "^6.4",
         "symfony/phpunit-bridge": "^6.2",
-        "symfony/stopwatch": "6.3.*",
-        "symfony/web-profiler-bundle": "6.3.*",
+        "symfony/stopwatch": "^6.4",
+        "symfony/web-profiler-bundle": "^6.4",
         "symplify/config-transformer": "^12.0",
         "symplify/easy-coding-standard": "^11.3",
         "vimeo/psalm": "^5.10"
@@ -94,7 +94,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "^6.4"
         }
     }
 }
