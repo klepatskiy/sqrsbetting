@@ -1,0 +1,35 @@
+version: '3'
+
+http:
+  address: '0.0.0.0:8080'
+  middleware:
+    - gzip
+    - static
+  static:
+    dir: public
+    forbid:
+      - .php
+      - .htaccess
+  pool:
+    num_workers: 1  # Для разработки может хватить одного воркера
+    debug: true
+    destroy_timeout: 5s  # Увеличим таймаут для воркеров, чтобы избежать аварийного завершения
+    supervisor:
+      max_worker_memory: 256  # Увеличиваем память для воркеров, если работают в dev режиме
+      exec_ttl: 120s  # Длительный таймаут выполнения для воркеров в режиме разработки
+
+server:
+  command: 'php public/index.php'
+  env:
+    - APP_RUNTIME: Runtime\RoadRunnerSymfonyNyholm\Runtime
+
+logs:
+  mode: production
+  channels:
+    http:
+      level: debug # Log all http requests, set to info to disable
+    server:
+      level: info # Everything written to worker stderr is logged
+      mode: raw
+    metrics:
+      level: error

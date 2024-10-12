@@ -1,23 +1,32 @@
-FROM php:8.3-fpm-alpine
+FROM ghcr.io/roadrunner-server/roadrunner:2023.3 AS roadrunner
+FROM php:8.3-cli
 
-RUN apk add --update --no-cache \
-      zip git pv curl supervisor wget unzip
+ARG HOST_UID=1000
+ARG HOST_GID=1000
 
+COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr
+COPY --from=composer:2.2 /usr/bin/composer /usr/local/bin/composer
+
+RUN apt-get update
+RUN apt-get -y install git
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/install-php-extensions
-RUN install-php-extensions gd xdebug amqp apcu intl zip opcache pdo bcmath sockets redis pdo_mysql
+RUN install-php-extensions gd pgsql pdo_pgsql xdebug amqp apcu intl zip opcache pdo bcmath sockets redis
+RUN install-php-extensions pdo_mysql pcntl posix json_post jsonpath openssl curl
 
+WORKDIR /app
 
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY . /app
 
-COPY ./conf/php-fpm/dev/php.ini /usr/local/etc/php/php.ini
-COPY ./conf/php-fpm/dev/remote-xdebug.ini /usr/local/etc/php/remote-xdebug.ini
-COPY ./conf/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
+RUN userdel -f www-data &&\
+    if getent group www-data ; then groupdel www-data; fi &&\
+    groupadd -g ${HOST_GID} www-data &&\
+    useradd -l -u ${HOST_UID} -g www-data www-data &&\
+    install -d -m 0755 -o www-data -g www-data /home/www-data &&\
+    chown --changes --silent --no-dereference --recursive \
+          --from=33:33 ${HOST_UID}:${HOST_GID} \
+        /app
 
-### timezone ###
-ARG TZ="Europe/Moscow"
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+USER www-data
 
-### permissions ###
-RUN mkdir -p /var/www/var/cache /var/www/var/log && chmod -R 777 /var/www/var
-WORKDIR /var/www/
+CMD bash -c "composer install && rr serve"
