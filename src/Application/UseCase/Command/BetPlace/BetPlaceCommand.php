@@ -16,6 +16,5 @@ readonly class BetPlaceCommand implements CommandInterface
         #[Assert\Valid]
         public BetPlaceEntryDTO $betPlaceDTO,
     ) {
-        dump($betPlaceDTO);
     }
 }

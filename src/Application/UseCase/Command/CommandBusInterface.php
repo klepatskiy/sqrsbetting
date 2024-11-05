@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\UseCase\Command;
 
-use App\Application\Enum\WlSlug;
+use Symfony\Component\Uid\Uuid;
 use Throwable;
 
 interface CommandBusInterface
@@ -12,5 +12,5 @@ interface CommandBusInterface
     /**
      * @throws Throwable
      */
-    public function handle(CommandInterface $command): void;
+    public function handle(CommandInterface $command): Uuid;
 }

@@ -29,4 +29,4 @@ RUN userdel -f www-data &&\
 
 USER www-data
 
-CMD bash -c "composer install && rr serve"
+CMD rr serve -c .rr.yaml

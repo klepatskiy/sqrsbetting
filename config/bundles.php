@@ -1,9 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
-use HarmBandstra\SwaggerUiBundle\HBSwaggerUiBundle;
-
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
@@ -12,5 +8,6 @@ return [
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
-    HBSwaggerUiBundle::class => ['all' => true],
+    HarmBandstra\SwaggerUiBundle\HBSwaggerUiBundle::class => ['all' => true],
+    Fresh\CentrifugoBundle\FreshCentrifugoBundle::class => ['all' => true],
 ];

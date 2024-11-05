@@ -1,0 +1,15 @@
+GET http://localhost/api/v1/healthcheck
+
+###
+POST http://localhost/api/v1/exception
+Content-Type: application/json
+
+{
+  "uuid": "0192f189-95f5-70bb-9b5e-d3b5e3c0288f"
+}
+
+###
+WEBSOCKET ws://localhost:3000
+
+###
+GRPC localhost:30000

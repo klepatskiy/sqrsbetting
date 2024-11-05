@@ -1,0 +1,34 @@
+framework:
+    messenger:
+        transports:
+            async: "%env(MESSENGER_TRANSPORT_DSN)%"
+        routing:
+            'App\Application\UseCase\Event\EventInterface': async
+        default_bus: messenger.bus.command
+        buses:
+            messenger.bus.command:
+                default_middleware:
+                    enabled: false
+                middleware:
+#                    - App\Infrastructure\Service\BusMiddleware\OperationIdMiddleware
+                    - send_message
+                    - handle_message
+                    - failed_message_processing_middleware
+                    - doctrine_ping_connection
+                    - doctrine_close_connection
+                    - doctrine_open_transaction_logger
+                    - doctrine_transaction
+            messenger.bus.query:
+                default_middleware:
+                    enabled: false
+                middleware:
+                    - handle_message
+                    - failed_message_processing_middleware
+            event.bus:
+                default_middleware:
+                    enabled: true
+when@test:
+    framework:
+        messenger:
+            transports:
+                async: 'sync://'

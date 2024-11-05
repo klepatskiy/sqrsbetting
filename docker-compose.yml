@@ -43,10 +43,19 @@ services:
       - REDIS_REPLICATION_MODE=master
 
 
-  openapigen:
-    build:
-      context: ./docker/context
-      dockerfile: images/openapigen/Dockerfile
-    container_name: ${PROJECT}_openapigen
+#  openapigen:
+#    build:
+#      context: ./docker/context
+#      dockerfile: images/openapigen/Dockerfile
+#    container_name: ${PROJECT}_openapigen
+#    volumes:
+#      - ./:/local
+
+  centrifugo:
+    container_name: ${PROJECT}_centrifugo
+    image: centrifugo/centrifugo:latest
+    ports:
+      - "8000:8000"
+    command: centrifugo -c centrifuge.json
     volumes:
-      - ./:/local
+      - "./config:/centrifugo"
