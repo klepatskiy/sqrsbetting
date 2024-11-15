@@ -3,8 +3,8 @@ version: '3'
 rpc:
   listen: tcp://127.0.0.1:6001
 
-centrifuge:
-  proxy_address: "tcp://127.0.0.1:30000"
+#centrifuge:
+#  proxy_address: "tcp://127.0.0.1:30000"
 
 http:
   address: '0.0.0.0:8080'
@@ -21,13 +21,13 @@ http:
     debug: true
     destroy_timeout: 5s  # Увеличим таймаут для воркеров, чтобы избежать аварийного завершения
     supervisor:
-      max_worker_memory: 256  # Увеличиваем память для воркеров, если работают в dev режиме
+      max_worker_memory: 120  # Увеличиваем память для воркеров, если работают в dev режиме
       exec_ttl: 120s  # Длительный таймаут выполнения для воркеров в режиме разработки
 
 server:
   command: 'php public/index.php'
   env:
-    - APP_RUNTIME: Runtime\RoadRunnerSymfonyNyholm\Runtime
+    - APP_RUNTIME: Baldinof\RoadRunnerBundle\Runtime\Runtime
 
 logs:
   mode: production

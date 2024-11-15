@@ -10,4 +10,5 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     HarmBandstra\SwaggerUiBundle\HBSwaggerUiBundle::class => ['all' => true],
     Fresh\CentrifugoBundle\FreshCentrifugoBundle::class => ['all' => true],
+    Baldinof\RoadRunnerBundle\BaldinofRoadRunnerBundle::class => ['all' => true],
 ];

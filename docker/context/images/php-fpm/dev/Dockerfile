@@ -1,4 +1,4 @@
-FROM ghcr.io/roadrunner-server/roadrunner:2023.3 AS roadrunner
+FROM ghcr.io/roadrunner-server/roadrunner:2024.2.1 AS roadrunner
 FROM php:8.3-cli
 
 ARG HOST_UID=1000
