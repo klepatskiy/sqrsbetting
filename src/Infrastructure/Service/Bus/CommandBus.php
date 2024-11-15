@@ -10,7 +10,6 @@ use App\Infrastructure\Service\Stamp\OperationStamp;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Uid\Uuid;
-use Symfony\Component\Uid\UuidV7;
 use Throwable;
 
 readonly class CommandBus implements CommandBusInterface
