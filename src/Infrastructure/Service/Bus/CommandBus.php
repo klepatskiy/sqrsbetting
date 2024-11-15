@@ -23,7 +23,7 @@ readonly class CommandBus implements CommandBusInterface
 
     public function handle(CommandInterface $command): Uuid
     {
-        $operation = new OperationStamp(Uuid::v7());
+        $operation = new OperationStamp();
 
         try {
             $this->messageBus->dispatch($command, [$operation]);

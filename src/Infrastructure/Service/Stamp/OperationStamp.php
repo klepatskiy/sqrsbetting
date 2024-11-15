@@ -9,8 +9,11 @@ use Symfony\Component\Uid\Uuid;
 
 final readonly class OperationStamp implements StampInterface
 {
+    public Uuid $operationUuid;
+
     public function __construct(
-        public Uuid $operationUuid,
+        ?Uuid $operationUuid = null,
     ) {
+        $this->operationUuid = $operationUuid ?? Uuid::v7();
     }
 }
