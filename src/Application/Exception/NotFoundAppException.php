@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Exception;
 
-class NotFoundAppException extends AppException
+final class NotFoundAppException extends AppException
 {
     public function __construct(string $message)
     {
